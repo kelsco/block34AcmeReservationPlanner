@@ -33,6 +33,8 @@ const init = async() => {
     ]);
     console.log(await fetchCustomers());
     console.log(await fetchRestaurants());
+
+
 const [reservation, reservation2] = await Promise.all([
     createReservations({
         customer_id: larry.id,
@@ -47,9 +49,11 @@ const [reservation, reservation2] = await Promise.all([
         party_count: 3
     }),
 ]);
+
+
 console.log('reading reservations', await reservation, await reservation2);
-console.log(await fetchReservations());
-await destroyReservations({ id: reservation2.id, customer_id: reservation2.customer_id});
+console.log(await fetchReservations())
+await destroyReservations({ id: reservation.id, customer_id: reservation.customer_id});
 console.log(await fetchReservations());
 };
 
